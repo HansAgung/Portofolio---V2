@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import React, { useRef } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 
@@ -14,17 +15,13 @@ export default function SocialMediaSection() {
 
     const totalSteps = 50;
     let step = 0;
-    const scrollHeight = scrollEl.scrollHeight;
-    const singleStep = 30; // jumlah pixel per langkah
+    const singleStep = 30;
 
     const interval = setInterval(() => {
-      scrollEl.scrollTop += singleStep; // geser ke bawah
-
+      scrollEl.scrollTop += singleStep;
       step++;
       if (step >= totalSteps) {
         clearInterval(interval);
-
-        // Loop balik ke atas (buat efek circular)
         setTimeout(() => {
           scrollEl.scrollTop = 0;
         }, 500);
@@ -34,7 +31,7 @@ export default function SocialMediaSection() {
 
   return (
     <section style={sectionStyle}>
-      {/* Left: Intro */}
+      {/* Left Section */}
       <div style={leftStyle}>
         <h2 style={headingStyle}>My Social Media</h2>
         <p style={paragraphStyle}>
@@ -42,15 +39,14 @@ export default function SocialMediaSection() {
           conversation, or collaboration—don’t hesitate to connect!
         </p>
         <p style={paragraphStyle}>
-        Find our way to connect with each other
+          Find our way to connect with each other
         </p>
-
         <button onClick={handleSpin} style={buttonStyle}>
           Tekan Saya
         </button>
       </div>
 
-      {/* Right: Scrollable Cards */}
+      {/* Right Section */}
       <div style={rightStyle}>
         <div style={arrowWrapper}><FaArrowUp /></div>
         <div ref={scrollRef} style={scrollContainer}>
@@ -101,26 +97,33 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       >
         <div style={{ ...splash, background }} />
         <motion.div style={card} variants={cardVariants} className="card">
-        <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>
-            <img src={icon} alt={label} style={{ ...iconStyle, transition: "transform 0.3s ease" }} />
-        </a>
-        <div style={{ textAlign: "center", marginTop: 12 }}>
+          <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>
+            <Image
+              src={icon}
+              alt={label}
+              width={80}
+              height={80}
+              style={{ objectFit: "contain", marginBottom: 20 }}
+            />
+          </a>
+          <div style={{ textAlign: "center", marginTop: 12 }}>
             <p style={{ fontSize: "1rem", fontWeight: "500", marginBottom: 6 }}>{label}</p>
             <p style={{ fontSize: "0.8rem", color: "#555" }}>
-            {label.includes("@") ? "Email saya" :
-            label.includes("wa.me") ? "Hubungi saya di WhatsApp" :
-            label.includes("instagram") ? "Lihat galeri dan aktivitas saya" :
-            label.includes("linkedin") ? "Jaringan profesional saya" :
-            "Akun saya"}
+              {label.includes("@") ? "Email saya" :
+                label.includes("wa.me") ? "Hubungi saya di WhatsApp" :
+                  label.includes("instagram") ? "Lihat galeri dan aktivitas saya" :
+                    label.includes("linkedin") ? "Jaringan profesional saya" :
+                      "Akun saya"}
             </p>
-        </div>
+          </div>
         </motion.div>
-        </motion.div>
+      </motion.div>
     );
   }
 );
 Card.displayName = "Card";
 
+// Animasi Framer Motion
 const cardVariants = {
   offscreen: {
     y: 300,
@@ -168,18 +171,18 @@ const paragraphStyle: React.CSSProperties = {
 };
 
 const buttonStyle: React.CSSProperties = {
-    padding: "10px 20px",
-    fontSize: "1rem",
-    backgroundColor: "transparent",
-    color: "#fff",
-    border: "none",
-    borderRadius: "8px",
-    cursor: "pointer",
-    marginTop: "20px",
-    background: "linear-gradient(to right, #f97316, #ef4444)", // Gradien dari oranye ke merah
-    fontWeight: "600", // Font Bold
-    transition: "opacity 0.3s ease, transform 0.3s ease", // Transisi untuk efek hover
-  };
+  padding: "10px 20px",
+  fontSize: "1rem",
+  backgroundColor: "transparent",
+  color: "#fff",
+  border: "none",
+  borderRadius: "8px",
+  cursor: "pointer",
+  marginTop: "20px",
+  background: "linear-gradient(to right, #f97316, #ef4444)",
+  fontWeight: "600",
+  transition: "opacity 0.3s ease, transform 0.3s ease",
+};
 
 const rightStyle: React.CSSProperties = {
   flex: "2",
@@ -194,8 +197,8 @@ const rightStyle: React.CSSProperties = {
 
 const scrollContainer: React.CSSProperties = {
   overflowY: "scroll",
-  scrollbarWidth: "none" as any,
-  msOverflowStyle: "none" as any,
+  scrollbarWidth: "none" as const,
+  msOverflowStyle: "none" as const,
   height: "100%",
   width: "100%",
 };
@@ -246,20 +249,8 @@ const card: React.CSSProperties = {
   transformOrigin: "10% 60%",
 };
 
-const iconStyle: React.CSSProperties = {
-  width: 80,
-  height: 80,
-  objectFit: "contain",
-  marginBottom: 20,
-};
-
 const linkStyle: React.CSSProperties = {
   display: "inline-block",
-};
-
-const labelStyle: React.CSSProperties = {
-  fontSize: "1rem",
-  fontWeight: "bold",
 };
 
 const arrowWrapper: React.CSSProperties = {
@@ -280,28 +271,21 @@ const socialMedia = [
     icon: "/mediasocial/wa-logo.jpeg",
     bgHue: 130,
     bgHue2: 160,
-    label: "+62 895 3369 59819",
+    label: "https://wa.me/62895336959819",
     href: "https://wa.me/62895336959819",
   },
   {
     icon: "/mediasocial/instagram-logo.png",
     bgHue: 300,
     bgHue2: 330,
-    label: "hans_agung23",
+    label: "instagram.com/hans_agung23",
     href: "https://instagram.com/hans_agung23",
   },
   {
     icon: "/mediasocial/linkedin-logo.png",
     bgHue: 210,
     bgHue2: 240,
-    label: "Hans Sitinjak",
-    href: "https://www.linkedin.com/in/hans-agung-b81566279/ ",
-  },
-  {
-    icon: "/mediasocial/github-logo.png",
-    bgHue: 260,
-    bgHue2: 290,
-    label: "HansAgung",
-    href: "https://github.com/HansAgung",
+    label: "linkedin.com/in/hans-agung",
+    href: "https://linkedin.com/in/hans-agung",
   },
 ];

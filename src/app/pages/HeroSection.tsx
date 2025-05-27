@@ -146,10 +146,10 @@ export default function HeroSection() {
 
       <div className="text-center relative z-20">
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-400">
-          Hi, I'm a <span className="text-yellow-600">{typedText}|</span>
+          Hi, I&apos;m a <span className="text-yellow-600">{typedText}|</span>
         </h1>
         <p className="mt-2 text-lg text-white">
-        I'm a passionate mobile developer dedicated to building intuitive, <br /> high-performance apps for Android and iOS. With a strong foundation <br />in Flutter and React Native, I turn ideas into impactful digital solutions that users love.
+        I&apos;m a passionate mobile developer dedicated to building intuitive, <br /> high-performance apps for Android and iOS. With a strong foundation <br />in Flutter and React Native, I turn ideas into impactful digital solutions that users love.
         </p>
       </div>
     </section>

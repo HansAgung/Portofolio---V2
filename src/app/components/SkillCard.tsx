@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface SkillCardProps {
@@ -16,12 +17,15 @@ export default function SkillCard({ name, icon }: SkillCardProps) {
       }}
       className="bg-white rounded-xl shadow-md hover:shadow-xl flex flex-col items-center justify-center px-4 py-6 mx-2"
     >
-      <img
-        src={icon}
-        alt={name}
-        className="mb-2 object-contain"
-        style={{ maxWidth: '64px', maxHeight: '64px', width: 'auto', height: 'auto' }}
-      />
+      <div className="mb-2" style={{ width: 64, height: 64, position: 'relative' }}>
+        <Image
+          src={icon}
+          alt={name}
+          fill
+          className="object-contain"
+          sizes="64px"
+        />
+      </div>
       <p className="text-sm font-semibold text-gray-700 text-center">{name}</p>
     </motion.div>
   );

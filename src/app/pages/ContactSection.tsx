@@ -10,7 +10,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-3xl font-bold mb-4"
         >
-          Let’s Connect
+          Let&rsquo;s Connect
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
@@ -18,7 +18,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-6 text-gray-700"
         >
-          I'm always open to discussing new opportunities or collaborations.
+          I&apos;m always open to discussing new opportunities or collaborations.
         </motion.p>
         <a
           href="mailto:your.email@example.com"

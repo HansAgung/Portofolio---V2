@@ -16,7 +16,7 @@ export default function AchievementsPage() {
         My Achievements
       </motion.h2>
       <p className="text-lg text-center text-gray-700 mb-12 max-w-3xl mx-auto">
-        Here are some of the key milestones and certifications I've achieved throughout my career.
+        Here are some of the key milestones and certifications I&apos;ve achieved throughout my career.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

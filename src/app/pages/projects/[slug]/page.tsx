@@ -1,14 +1,16 @@
 import { notFound } from 'next/navigation';
 import { projects } from '@/lib/data/project';
+import Image from 'next/image';
+import * as React from 'react';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function ProjectDetailPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = React.use(params);
   const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
@@ -27,14 +29,18 @@ export default function ProjectDetailPage({ params }: Props) {
         </p>
 
         <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
+          {/* Gambar utama */}
           <div className="w-full md:w-1/2 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-            <img
+            <Image
               src={project.image}
-              alt={project.title}
+              alt={`Preview proyek ${project.title}`}
+              width={800}
+              height={500}
               className="w-full h-auto object-cover"
             />
           </div>
 
+          {/* Detail proyek */}
           <div className="w-full md:w-1/2 bg-gray-50 rounded-2xl p-8 shadow-inner border border-gray-200">
             <h2 className="text-3xl font-semibold mb-6 text-gray-800 border-b border-gray-300 pb-3">
               Detail Proyek
@@ -77,10 +83,13 @@ export default function ProjectDetailPage({ params }: Props) {
                 <div className="flex flex-wrap gap-2 items-center">
                   {project.languages.map((lang) => (
                     <div key={lang} className="flex items-center space-x-3">
-                      <img
+                      <Image
                         src={`/skills/${lang.toLowerCase()}`}
-                        className="w-full h-12 object-contain rounded-lg shadow-md"
-                      />  
+                        alt={`Logo ${lang}`}
+                        width={48}
+                        height={48}
+                        className="h-12 w-12 object-contain rounded-lg shadow-md"
+                      />
                     </div>
                   ))}
                 </div>
@@ -93,17 +102,20 @@ export default function ProjectDetailPage({ params }: Props) {
               </li>
             </ul>
           </div>
-
-          
         </div>
 
+        {/* Deskripsi Proyek */}
         <div className="prose max-w-full text-gray-800 text-lg leading-relaxed">
-          {project.description} <br />
-          <button className="min-w-full mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300">
-            <a href={project.link} target="_blank" rel="noopener noreferrer">
-              Lihat Proyek
-            </a>
-          </button>
+          {project.description}
+          <br />
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block min-w-full mt-4 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-center rounded-lg hover:bg-yellow-600 transition duration-300"
+          >
+            Lihat Proyek
+          </a>
         </div>
       </div>
     </section>

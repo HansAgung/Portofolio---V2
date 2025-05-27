@@ -44,7 +44,7 @@ export default function SkillsSection() {
       <h2 className="text-3xl font-bold text-center text-yellow-600 mb-6">My Skills</h2>
       <div className="max-w-3xl mx-auto text-center px-4">
         <p className="text-lg text-gray-600 mb-10">
-          Throughout my journey as a mobile developer, I've cultivated a well-rounded skill set that balances both technical expertise and interpersonal strengths. Below is a selection of my <span className="font-medium text-gray-800">hard skills</span> that support development execution, along with <span className="font-medium text-gray-800">soft skills</span> that enhance collaboration, leadership, and adaptability in team environments.
+          Throughout my journey as a mobile developer, I&apos;ve cultivated a well-rounded skill set that balances both technical expertise and interpersonal strengths. Below is a selection of my <span className="font-medium text-gray-800">hard skills</span> that support development execution, along with <span className="font-medium text-gray-800">soft skills</span> that enhance collaboration, leadership, and adaptability in team environments.
         </p>
       </div>
       <div

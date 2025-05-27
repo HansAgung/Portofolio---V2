@@ -9,11 +9,10 @@ type Project = {
   slug: string;
   title: string;
   image: string;
-  description: string;
   subtitle: string;
 };
 
-export default function ProjectCard({ slug, title, subtitle, image, description }: Project) {
+export default function ProjectCard({ slug, title, subtitle, image }: Project) {
   const [flipped, setFlipped] = useState(false);
 
   return (
