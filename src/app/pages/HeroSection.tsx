@@ -6,11 +6,11 @@ const InfinitySlider = ({ isColor = false }: { isColor: boolean }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const images = [
-    "/photo_hero.jpeg",
-    "/photo_hero2.jpeg",
-    "/photo_hero3.jpeg",
-    "/photo_hero4.jpeg",
-    "/photo_hero5.jpeg"
+    "/profile/photo_hero.jpeg",
+    "/profile/photo_hero2.jpeg",
+    "/profile/photo_hero3.jpeg",
+    "/profile/photo_hero4.jpeg",
+    "/profile/photo_hero5.jpeg"
   ];
 
   useEffect(() => {
