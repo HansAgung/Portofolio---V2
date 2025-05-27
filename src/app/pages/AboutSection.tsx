@@ -38,7 +38,7 @@ export default function AboutSection() {
           <div className="w-80 h-[30rem] bg-white shadow-md rounded-[20px] flex items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 bg-white bg-opacity-15 backdrop-blur-md rounded-[20px] z-0" />
             <Image
-              src="/achivement/photo_hero4.jpeg"
+              src="/profile/photo_hero4.jpeg"
               alt="About Me Image"
               width={316}
               height={316}
