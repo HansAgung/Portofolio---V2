@@ -52,7 +52,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="/CV-HansAgungSitinjak.pdf"
+                href="/CV-HansAgungFinal.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 download
